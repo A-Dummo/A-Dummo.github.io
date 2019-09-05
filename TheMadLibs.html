@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Water</title>
+		<meta charset="utf-8">
+		<style type="text/css">
+			body {
+				background-color: coral;
+			}
+			textarea {
+				height: 300px;
+				width: 300px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>MadLibs v3.0</h1>
+		<p>My formatting skills are bad.<acronym title="I mean all of them.">*</acronym></p>
+		<p>Please fill out all fields.</p>
+		<div id="words">
+			<div id="verbs">
+				<h2>Verbs</h2>
+				<input type="text" id="verb1" name="">
+				<br>
+				<input type="text" id="verb2" name="">
+				<br>
+				<input type="text" id="verb3" name="">
+			</div>
+			<div id="nouns">
+				<h2>Nouns</h2>
+				<input type="text" id="noun1" name="">
+				<br>
+				<input type="text" id="noun2" name="">
+				<br>
+				<input type="text" id="noun3" name="">
+			</div>
+		</div>
+		<br>
+		<!-- Naturally inline? -->
+		<div id="thanos" style=" display: none;">
+			<h2>Thanos Text</h2>
+			<textarea id="thanostext" readonly="" style="resize: none"></textarea>
+		</div>
+		<br>
+		<h6>End</h6>
+		<button type="button" onclick="showthanos()">submit</button>
+		<button type="button" onclick="toe()">reset</button>
+		<!--
+			The end is near, and when I'm done, half of humanity will still exist. Perfectly balanced, as all things should be...and I hope they remember you.
+		-->
+		<script type="text/javascript">
+			//Declared and assigned vars.
+			/*
+			*Element with the id "words" is assigned to a.
+			*b is assigned to be an array of input elements.
+			*Don't know the technical type of object they are.
+			*/
+			var a = document.getElementById("words");
+			var b = a.getElementsByTagName("input");
+			//Clears all inputs elements' values.
+			function toe(){
+				for(let e of b){
+					e.value = "";
+				}
+			}
+			//This shows Thanos quote.
+			function showthanos(){
+				//I made "thanos" div be hidden normally.
+				let c = document.getElementById("thanos");
+				//The "thanos" div is then made visible.
+				c.style.display = "inline";
+				//"thanostext" element will hold the quote.
+				let f = document.getElementById("thanostext");
+				//"thanostext" element value is then assigned.
+				f.value = `The ${b[3].value} is near, and when I'm ${b[0].value}, half of ${b[4].value} will still ${b[1].value}.\nPerfectly balanced, as all things should be...and I hope they ${b[2].value} ${b[5].value}.\n- Thanos`;
+			}
+		</script>
+	</body>
+</html>
